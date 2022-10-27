@@ -15,9 +15,6 @@ class IntermediaryMatch():
 
     def add_new_match():
         data = request.json
-        data['id_user_last_offer'] = None
-        data['date_last_offer'] = None
-        data['last_amount_offered'] = None
         new_match = MatchEntity(data) #creo una instancia
         db.session.add(new_match) #agrego a la bd
         db.session.commit() #termino

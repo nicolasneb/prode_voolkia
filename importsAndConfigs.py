@@ -9,6 +9,7 @@ CORS(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{DB_USER}:{DB_PASSWORD}@localhost/{DATABASE_NAME}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #para que no tire errores ni warnings
+app.config['SECRET_KEY'] = 'voolkia-prode'    
 
 db = SQLAlchemy(app) #obtenemos una instancia de la bd
 
