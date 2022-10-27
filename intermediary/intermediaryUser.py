@@ -1,4 +1,4 @@
-from importsAndConfigs import app
+from importsAndConfigs import app, auth
 from schemas.userSchema import UserSchema
 from entities.userEntity import UserEntity
 from flask import request, g, abort, jsonify
@@ -10,17 +10,7 @@ with app.app_context():
 match_schema = UserSchema() #Instanciamos para poder iteractuar con bd para ABM de uno
 match_schemas = UserSchema(many=True) #Para varios/muchos
 
-class IntermediaryUser():
-    def verify_password(username_or_token, password):
-        # first try token
-        user = UserEntity.verify_auth_token(username_or_token)
-        # then check for username and password pair
-        if not user:
-            user = UserEntity.query.filter_by(username = username_or_token).first()
-            if not user or not user.verify_password(password):
-                return False
-        g.user = user
-        return True
+class IntermediaryUser():    
 
     def register():
         username = request.json.get('username') 

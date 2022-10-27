@@ -28,7 +28,7 @@ class UserEntity(db.Model):
             algorithm=['HS256'])
         except:
             return 
-        return User.query.get(data['id'])
+        return UserEntity.query.get(data['id'])
 
     def prepare_table_user_and_get_db():
         return db

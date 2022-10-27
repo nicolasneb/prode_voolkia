@@ -3,6 +3,9 @@ from flask import Flask
 from flask_cors import CORS
 from flask_marshmallow import Marshmallow
 from constants import DB_USER, DB_PASSWORD, DATABASE_NAME
+from flask_httpauth import HTTPBasicAuth
+
+auth = HTTPBasicAuth()
 
 app = Flask(__name__)
 CORS(app)
